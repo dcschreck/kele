@@ -27,6 +27,18 @@ class Kele
         JSON.parse(response.body)
     end
 
+    def get_mentor_availability(mentor_id)
+        available = []
+        response = self.class.get(build_url('/mentors/'+"#{mentor_id}"+'/student_availability'), headers: {"authorization" => @auth_token })
+        schedule = JSON.parse(response.body)
+        schedule.each do |session|
+            if session['booked'] == nil
+                available.push(session)
+            end
+        end
+        return available
+    end
+
     private
     def build_url(endpoint)
         "https://www.bloc.io/api/v1#{endpoint}"
