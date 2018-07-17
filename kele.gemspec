@@ -6,10 +6,10 @@ Gem::Specification.new do |s|
     s.description   = 'A client for the Bloc API'
     s.authors       = ['Douglas Schreck']
     s.email         = 'dcschreck421@gmail.com'
-    s.files         = ['lib/kele.rb']
+    s.files         = ['lib/kele.rb', 'lib/kele/roadmap.rb']
     s.require_paths = ["lib"]
     s.homepage      = 'http://rubygems.org/gem/kele'
     s.license       = 'MIT'
     s.add_runtime_dependency 'httparty', '~> 0.13'
     s.add_runtime_dependency 'json', '~> 1.8'
-end 
+end
