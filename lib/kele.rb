@@ -1,4 +1,5 @@
 require 'httparty'
+require 'json'
 
 class Kele
     include HTTParty
@@ -19,6 +20,11 @@ class Kele
         else
             raise "Authorization failed. Invalid email or password."
         end
+    end
+
+    def get_me
+        response = self.class.get(build_url('/users/me'), headers: {"authorization" => @auth_token })
+        JSON.parse(response.body)
     end
 
     private
